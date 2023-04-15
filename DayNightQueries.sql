@@ -1,6 +1,6 @@
-#1. Display all drivers who earn less than $56,000 a year. The resulting list should be
+*/ #1. Display all drivers who earn less than $56,000 a year. The resulting list should be
 ordered on driver status in ascending order and within each driver status in
-descending order by salary. 
+descending order by salary. */
 
 SELECT * dr_drvname AS name, dr_drvstatus AS status, dr_salary AS salary
 FROM driver
