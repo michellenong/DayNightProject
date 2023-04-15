@@ -1,4 +1,4 @@
-/*Display the name and age of the oldest driver /*
+/*Display the name and age of the oldest driver */
 
 SELECT ca_cabnum AS "CAB NUMBER", ca_make AS make, ca_model AS MODEL
 FROM cab join shift
