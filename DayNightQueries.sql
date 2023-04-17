@@ -10,7 +10,7 @@ AND shift.sh_wkdate <> '16-NOV-2022'
 ordered on driver status in ascending order and within each driver status in
 descending order by salary. */
 
-SELECT dr_drvname AS name, dr_drvstatus AS status, dr_salary AS salary
+AS name, dr_drvstatus AS status, dr_salary AS salary
 FROM driver
 WHERE dr_salary < '56000'
 ORDER BY dr_drvstatus, dr_salary desc;
@@ -141,7 +141,7 @@ ORDER BY ma_maindate;
 Texas or Louisiana license number. The result should be displayed in ascending
 order by license number. */ 
 
-SELECT ca_cabnum AS "CAB NUMBER", ca_make AS make, ca_model AS model, ca_licnum AS "LICENSE NUMBER"
+AS "CAB NUMBER", ca_make AS make, ca_model AS model, ca_licnum AS "LICENSE NUMBER"
 FROM cab
 WHERE ca_lic_num LIKE 'TX%'
 OR ca_licnum LIKE 'LA%'
@@ -155,13 +155,4 @@ FROM shift join driver
 on shift.sh_drvnum = driver.dr_drvnum
 WHERE dr_drvstatus = 'Do Not Reserve';
 
-/* For each driver qualified to drive cabs, display the number of cabs of each make he or
-she is qualified to drive. Include in your output the driver number, driver name, cab
-make, and the number of cabs of that make he or she is qualified to drive. */
 
-SELECT driver.dr_drvnum AS "DRIVER NUMBER", driver.dr_drvname AS name, cab.ca_make AS make, COUNT(cab.ca_make) AS "MAKE COUNT"
-FROM driver JOIN shift
-ON driver.dr_drvnum = shift.sh_drvnum
-JOIN cab
-ON shift.sh_cabnum = cab.ca_cabnum
-GROUP BY driver.dr_drvnum, driver.dr_drvname, cab.ca_make;
